@@ -1,0 +1,10 @@
+obj
+bin
+/.vs/CryptoCore/v15/*.suo
+
+*.pubxml
+.vs
+__Logs
+node_modules
+*.user
+*.log

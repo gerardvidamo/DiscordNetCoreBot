@@ -8,6 +8,6 @@ namespace DiscordBot.Modules
         [Command("info")]
         public Task Info()
             => ReplyAsync(
-                $"Hello, I am a bot called {Context.Client.CurrentUser.Username} written in Discord.Net 1.0\n");
+                $"Hello, I am a bot called {Context.Client.CurrentUser.Username} written in c# NetCore 2.0\n");
     }
 }

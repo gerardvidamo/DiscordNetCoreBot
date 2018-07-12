@@ -1,6 +1,6 @@
 namespace DiscordBot.Interfaces
 {
-    public class IKeyGenerator
+    public interface IKeyGenerator
     {
         string GenerateKey(object item);
     }

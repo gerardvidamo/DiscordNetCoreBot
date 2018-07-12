@@ -16,12 +16,12 @@ namespace DiscordBot.Services
         private IServiceProvider _provider;
         private LiteDatabase _database;
 
-        public CommandHandlingService(IServiceProvider provider, DiscordSocketClient discord, CommandService commands) //, LiteDatabase database)
+        public CommandHandlingService(IServiceProvider provider, DiscordSocketClient discord, CommandService commands, LiteDatabase database)
         {
             _discord = discord;
             _commands = commands;
             _provider = provider;
-            //_database = database;
+            _database = database;
 
             _discord.MessageReceived += MessageReceived;
         }
@@ -65,7 +65,7 @@ namespace DiscordBot.Services
             var users = _database.GetCollection<User>("users");
             var user = users.FindOne(u => u.Id == context.User.Id) ?? new User { Id = context.User.Id };
             ++user.Points;
-            // TODO: users.Upsert(user);
+            users.Upsert(user);
 
             // If sending a levelup notification, flag this Task as async and remove the following line
             return Task.CompletedTask;

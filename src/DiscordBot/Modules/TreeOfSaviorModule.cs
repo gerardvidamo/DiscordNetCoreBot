@@ -1,17 +1,20 @@
+using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 using Discord.Commands;
+using DiscordBot.Common;
 
 namespace DiscordBot.Modules
 {
     public class TreeOfSaviorModule: ModuleBase<SocketCommandContext>
-    {
+    {   
         ///<summary>
         ///this message
         ///</summary>
         [Command("help"), Alias("h")]
         public Task Help()
             => ReplyAsync(
-                $"Coming soon for help command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
 
         ///<summary>
         ///greets he bot
@@ -19,7 +22,7 @@ namespace DiscordBot.Modules
         [Command("hello"), Alias("hi")]
         public Task Hello()
             => ReplyAsync(
-                $"Coming soon for hello command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
 
         ///<summary>
         ///get latest news/updates from Tree of Savior official website
@@ -27,7 +30,7 @@ namespace DiscordBot.Modules
         [Command("news")]
         public Task News()
             => ReplyAsync(
-                $"Coming soon for news command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
                 
         ///<summary>
         ///ping the bot
@@ -35,7 +38,7 @@ namespace DiscordBot.Modules
         [Command("ping")]
         public Task Ping()
             => ReplyAsync(
-                $"Coming soon for ping command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
                  
         ///<summary>
         ///get link for ktest version of tos.neet
@@ -43,7 +46,7 @@ namespace DiscordBot.Modules
         [Command("ktest")]
         public Task KTest()
             => ReplyAsync(
-                $"Coming soon for ktest command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
                 
         ///<summary>
         ///get link for latest data mined file(s)
@@ -51,7 +54,7 @@ namespace DiscordBot.Modules
         [Command("update")]
         public Task Update()
             => ReplyAsync(
-                $"Coming soon for update command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
                 
         ///<summary>
         ///get link for class/build planner
@@ -59,7 +62,7 @@ namespace DiscordBot.Modules
         [Command("planner")]
         public Task Planner()
             => ReplyAsync(
-                $"Coming soon for planner command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
                 
         ///<summary>
         ///get my invitation link
@@ -67,7 +70,7 @@ namespace DiscordBot.Modules
         [Command("invite")]
         public Task Invite()
             => ReplyAsync(
-                $"Coming soon for invite command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
                 
         ///<summary>
         ///get tos's player statistics
@@ -75,15 +78,15 @@ namespace DiscordBot.Modules
         [Command("pccu")]
         public Task PCCU()
             => ReplyAsync(
-                $"Coming soon for pccu command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
                 
         ///<summary>
         ///get link for leveling guide
         ///</summary>  
-        [Command("lv")]
+        [Command("lv"), Alias("leveling")]
         public Task Level()
             => ReplyAsync(
-                $"Coming soon for lv command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
                 
         ///<summary>
         ///get class build rankings (based on itos official website)
@@ -91,7 +94,7 @@ namespace DiscordBot.Modules
         [Command("rank")]
         public Task Rank()
             => ReplyAsync(
-                $"Coming soon for rank command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
                 
         ///<summary>
         ///get link for explorer's gimmick & new collections guide 
@@ -99,7 +102,7 @@ namespace DiscordBot.Modules
         [Command("explore")]
         public Task Explore()
             => ReplyAsync(
-                $"Coming soon for explore command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
                 
         ///<summary>
         ///get builds compilation docs
@@ -107,7 +110,7 @@ namespace DiscordBot.Modules
         [Command("build")]
         public Task Build()
             => ReplyAsync(
-                $"Coming soon for build command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
                 
         ///<summary>
         ///get hidden class/rank 8 class unlock guides docs
@@ -115,7 +118,7 @@ namespace DiscordBot.Modules
         [Command("unlock")]
         public Task Unlock()
             => ReplyAsync(
-                $"Coming soon for unlock command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
                 
         ///<summary>
         ///get reddit link for newbie/returning player discussion
@@ -123,7 +126,7 @@ namespace DiscordBot.Modules
         [Command("faq")]
         public Task Fa()
             => ReplyAsync(
-                $"Coming soon for faq command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
                 
         ///<summary>
         ///get link to download latest addon manager
@@ -131,7 +134,7 @@ namespace DiscordBot.Modules
         [Command("addon")]
         public Task AddOn()
             => ReplyAsync(
-                $"Coming soon for addon command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
                 
         ///<summary>
         ///get link for guide and class breakdown
@@ -139,14 +142,20 @@ namespace DiscordBot.Modules
         [Command("get"), Alias("item")]
         public Task Get()
             => ReplyAsync(
-                $"Coming soon for get command\n");
-
-                
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
+               
         ///<summary>
         ///get pastebin link for ktos/ktest patch notes translation from Greyhiem & Gwenyth.
-        ///</summary>          [Command("skill")]
+        ///</summary>
+        [Command("skill")]
         public Task Skill()
             => ReplyAsync(
-                $"Coming soon for skill command\n");
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
+
+        [Command("test")]
+        public Task Test()
+            => ReplyAsync(
+                $"{TreeOfSaviorHelper.GetCommandValue(TreeOfSaviorHelper.TrimCommandMessage(Context.Message.Content, Context.Client.CurrentUser.Mention))}");
+
     }
 }

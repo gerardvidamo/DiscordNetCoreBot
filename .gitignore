@@ -8,3 +8,4 @@ __Logs
 node_modules
 *.user
 *.log
+*.db

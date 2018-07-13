@@ -5,7 +5,7 @@ using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using DiscordBot.Data;
-
+using LiteDB;
 
 namespace DiscordBot.Services
 {
@@ -14,14 +14,14 @@ namespace DiscordBot.Services
         private readonly DiscordSocketClient _discord;
         private readonly CommandService _commands;
         private IServiceProvider _provider;
-        // private LiteDatabase _database;
+        private LiteDatabase _database;
 
-        public CommandHandlingService(IServiceProvider provider, DiscordSocketClient discord, CommandService commands) //, LiteDatabase database)
+        public CommandHandlingService(IServiceProvider provider, DiscordSocketClient discord, CommandService commands, LiteDatabase database)
         {
             _discord = discord;
             _commands = commands;
             _provider = provider;
-            //_database = database;
+            _database = database;
 
             _discord.MessageReceived += MessageReceived;
         }
@@ -62,10 +62,10 @@ namespace DiscordBot.Services
 
         private Task UpdateLevelAsync(SocketCommandContext context)
         {
-            var users = null; //TODO: _database.GetCollection<User>("users");
-            var user = null; // TODO: users.FindOne(u => u.Id == context.User.Id) ?? new User { Id = context.User.Id };
+            var users = _database.GetCollection<User>("users");
+            var user = users.FindOne(u => u.Id == context.User.Id) ?? new User { Id = context.User.Id };
             ++user.Points;
-            // TODO: users.Upsert(user);
+            users.Upsert(user);
 
             // If sending a levelup notification, flag this Task as async and remove the following line
             return Task.CompletedTask;

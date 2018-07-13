@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using DiscordBot.Data;
+using LiteDB;
 
 namespace DiscordBot.Modules
 {
@@ -9,7 +10,7 @@ namespace DiscordBot.Modules
     public class PointsModule : ModuleBase<SocketCommandContext>
     {
         // This property will be filled in at runtime by the IoC container (Program.cs:49)
-        // public LiteDatabase Database { get; set; }
+        public LiteDatabase Database { get; set; }
 
         // Access the current user's points, under '!points' or '!points me'
         [Command, Alias("me")]
@@ -23,8 +24,8 @@ namespace DiscordBot.Modules
 
         private async Task SendPointsAsync(IUser user)
         {
-            var users = null; // TODO: Database.GetCollection<User>("users");
-            var model = null; // TODO: users.FindOne(u => u.Id == user.Id);
+            var users = Database.GetCollection<User>("users");
+            var model = users.FindOne(u => u.Id == user.Id);
 
             var points = model?.Points ?? 0;
 
